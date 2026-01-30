@@ -4,7 +4,7 @@
 # Create config directory
 mkdir -p /home/node/.openclaw
 
-# Write config file with trusted proxies and open webchat
+# Write config file with trusted proxies
 cat > /home/node/.openclaw/config.json << 'EOF'
 {
   "gateway": {
@@ -13,11 +13,6 @@ cat > /home/node/.openclaw/config.json << 'EOF'
       "dangerouslyDisableDeviceAuth": true
     },
     "trustedProxies": ["100.64.0.0/10", "10.0.0.0/8", "172.16.0.0/12"]
-  },
-  "docking": {
-    "webchat": {
-      "allowFrom": ["*"]
-    }
   }
 }
 EOF
