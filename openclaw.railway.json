@@ -4,6 +4,11 @@
       "enabled": true,
       "dangerouslyDisableDeviceAuth": true
     },
-    "trustedProxies": ["0.0.0.0/0"]
+    "trustedProxies": ["100.64.0.0/10", "10.0.0.0/8"]
+  },
+  "docking": {
+    "webchat": {
+      "allowFrom": ["*"]
+    }
   }
 }

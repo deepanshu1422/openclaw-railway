@@ -9,7 +9,7 @@ dockerfilePath = "Dockerfile"
 # Gateway runs on port 3000 (Railway will route to this)
 # Using --bind lan to listen on all interfaces
 # Using railway config to trust proxies and disable device auth
-startCommand = "node dist/index.js gateway --allow-unconfigured --port 3000 --bind lan"
+startCommand = "/bin/sh /app/railway-start.sh"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
