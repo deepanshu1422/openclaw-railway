@@ -9,7 +9,7 @@ dockerfilePath = "Dockerfile"
 # Gateway runs on port 3000 (Railway will route to this)
 # Using --bind lan to listen on all interfaces
 # Using railway config to trust proxies and disable device auth
-startCommand = "OPENCLAW_CONFIG_PATH=/app/openclaw.railway.json node dist/index.js gateway --allow-unconfigured --port 3000 --bind lan"
+startCommand = "mkdir -p /home/node/.openclaw && echo '{\"gateway\":{\"controlUi\":{\"dangerouslyDisableDeviceAuth\":true},\"trustedProxies\":[\"100.64.0.0/10\",\"10.0.0.0/8\",\"172.16.0.0/12\",\"192.168.0.0/16\"]}}' > /home/node/.openclaw/config.json && OPENCLAW_CONFIG_PATH=/home/node/.openclaw/config.json node dist/index.js gateway --allow-unconfigured --port 3000 --bind lan"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
