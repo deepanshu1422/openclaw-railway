@@ -6,8 +6,8 @@ builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-# Gateway runs on the PORT env var provided by Railway
-startCommand = "node dist/index.js gateway --allow-unconfigured --port ${PORT:-3000} --bind lan"
+# Gateway runs on port 3000 (Railway will route to this)
+startCommand = "node dist/index.js gateway --allow-unconfigured --port 3000 --bind 0.0.0.0"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
