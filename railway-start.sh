@@ -1,11 +1,14 @@
 #!/bin/sh
 # Railway startup script for OpenClaw
 
+# Ensure HOME is set correctly
+export HOME=/home/node
+
 # Create config directory
-mkdir -p /home/node/.openclaw
+mkdir -p "$HOME/.openclaw"
 
 # Write config file with trusted proxies (must be named openclaw.json)
-cat > /home/node/.openclaw/openclaw.json << 'EOF'
+cat > "$HOME/.openclaw/openclaw.json" << 'EOF'
 {
   "gateway": {
     "controlUi": {
@@ -16,6 +19,10 @@ cat > /home/node/.openclaw/openclaw.json << 'EOF'
   }
 }
 EOF
+
+# Debug: Show the config
+echo "Config written to $HOME/.openclaw/openclaw.json:"
+cat "$HOME/.openclaw/openclaw.json"
 
 # Config is auto-detected from ~/.openclaw/openclaw.json
 exec node dist/index.js gateway --allow-unconfigured --port 3000 --bind lan
