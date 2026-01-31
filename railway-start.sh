@@ -7,7 +7,7 @@ export HOME=/home/node
 # Create config directory
 mkdir -p "$HOME/.openclaw"
 
-# Write config file with trusted proxies (must be named openclaw.json)
+# Write config file with trusted proxies and WhatsApp enabled
 cat > "$HOME/.openclaw/openclaw.json" << 'EOF'
 {
   "gateway": {
@@ -16,6 +16,12 @@ cat > "$HOME/.openclaw/openclaw.json" << 'EOF'
       "dangerouslyDisableDeviceAuth": true
     },
     "trustedProxies": ["100.64.0.0/10", "10.0.0.0/8", "172.16.0.0/12"]
+  },
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "provider": "baileys"
+    }
   }
 }
 EOF
