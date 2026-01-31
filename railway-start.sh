@@ -20,7 +20,8 @@ cat > "$HOME/.openclaw/openclaw.json" << 'EOF'
   "channels": {
     "whatsapp": {
       "enabled": true,
-      "provider": "baileys"
+      "dmPolicy": "open",
+      "allowFrom": ["*"]
     }
   }
 }
