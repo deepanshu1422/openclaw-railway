@@ -4,8 +4,8 @@
 # Create config directory
 mkdir -p /home/node/.openclaw
 
-# Write config file with trusted proxies
-cat > /home/node/.openclaw/config.json << 'EOF'
+# Write config file with trusted proxies (must be named openclaw.json)
+cat > /home/node/.openclaw/openclaw.json << 'EOF'
 {
   "gateway": {
     "controlUi": {
@@ -17,6 +17,5 @@ cat > /home/node/.openclaw/config.json << 'EOF'
 }
 EOF
 
-# Set config path and start gateway
-export OPENCLAW_CONFIG_PATH=/home/node/.openclaw/config.json
+# Config is auto-detected from ~/.openclaw/openclaw.json
 exec node dist/index.js gateway --allow-unconfigured --port 3000 --bind lan
